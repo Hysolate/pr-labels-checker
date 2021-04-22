@@ -13,6 +13,12 @@ inputs:
   hasNotAll:
     description: 'Comma separated list of labels, PR must not have all of them'
     required: false
+  forceMerge:
+    description: >
+      If set, and the repository contains a topic of lock-<branch> (i.e. lock-master,
+      lock-staging), then PRs to that branch will be blocked, unless they have a label with this
+      value.
+    required: false
   githubToken:
     description: 'The Github secret token to access PR check API'
     required: true

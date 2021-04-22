@@ -14,6 +14,7 @@ const hasSomeInput = core.getInput('hasSome')
 const hasAllInput = core.getInput('hasAll')
 const hasNoneInput = core.getInput('hasNone')
 const hasNotAllInput = core.getInput('hasNotAll')
+const forceMergeLabel = core.getInput('forceMerge')
 
 const hasSomeLabels = hasSomeInput.split(',')
 const hasAllLabels = hasAllInput.split(',')
@@ -66,6 +67,20 @@ if (!hasNotAllResult) {
 }
 
 async function run () {
+  if (forceMergeLabel && !prLabels.includes(forceMergeLabel)) {
+    const repoTopics = await octokit.repos.getAllTopics({
+      owner: context.repo.owner,
+      repo: context.repo.repo,
+    })
+    const baseBranchName = context.payload.pull_request.base.ref
+    if (repoTopics.data.names.includes(`lock-${baseBranchName}`)) {
+      failMessages.push(
+        `The base branch ${baseBranchName} is locked, and the PR does not have label` +
+        ` ${forceMergeLabel}`,
+      )
+    }
+  }
+
   const checks = await octokit.checks.listForRef({
     ...context.repo,
     ref: context.payload.pull_request.head.ref,
