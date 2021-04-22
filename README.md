@@ -38,4 +38,12 @@ jobs:
         with:
           hasNone: do not merge,blocked
           githubToken: ${{ secrets.GITHUB_TOKEN }}
+  Unlock-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Hysolate/pr-labels-checker@main
+        id: checkLabel
+        with:
+          forceMerge: force merge
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
 ```
