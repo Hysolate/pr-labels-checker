@@ -1,6 +1,6 @@
 {
   "name": "pr-labels-checker",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Github Action to check if a PR's labels pass the specified rules",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/danielchabr/pr-has-one-of-labels.git"
+    "url": "git+https://github.com/Hysolate/pr-has-one-of-labels.git"
   },
   "keywords": [
     "actions",
@@ -16,12 +16,12 @@
     "check",
     "status"
   ],
-  "author": "Daniel Chabr",
+  "author": "Hysolate - forked from Daniel Chabr",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/danielchabr/pr-has-one-of-labels/issues"
+    "url": "https://github.com/Hysolate/pr-has-one-of-labels/issues"
   },
-  "homepage": "https://github.com/danielchabr/pr-has-one-of-labels#readme",
+  "homepage": "https://github.com/Hysolate/pr-has-one-of-labels#readme",
   "dependencies": {
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0"

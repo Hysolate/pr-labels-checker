@@ -1,6 +1,8 @@
 # PR Labels Checker
 Github Action to check if a PR's labels pass the specified rules
 
+Forked from https://github.com/danielchabr/pr-labels-checker
+
 ## Input
 - `hasSome`: Comma separated list of labels, PR needs at least of them
 - `hasAll`: Comma separated list of labels, PR needs all of them
@@ -22,7 +24,7 @@ jobs:
     if: github.base_ref == 'master'
     runs-on: ubuntu-latest
     steps:
-      - uses: danielchabr/pr-labels-checker@v3
+      - uses: Hysolate/pr-labels-checker@main
         id: checkLabel
         with:
           hasSome: QA:tested,QA:skipped
@@ -31,7 +33,7 @@ jobs:
     if: github.base_ref == 'master'
     runs-on: ubuntu-latest
     steps:
-      - uses: danielchabr/pr-labels-checker@v3
+      - uses: Hysolate/pr-labels-checker@main
         id: checkLabel
         with:
           hasNone: do not merge,blocked
